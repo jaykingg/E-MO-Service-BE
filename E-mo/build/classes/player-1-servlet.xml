@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <!-- HandlerMapping -->
+  <!-- 설정없음 -->
+  <!-- Controller -->
+  <bean id="indexController" name="/index.html" class="controller.IndexController"> 
+  </bean>
+  <!-- ViewResolver -->
+  <!-- 설정없음 -->
+  <!-- Data Source -->
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+    <property name="driverClassName"> <value>com.mysql.jdbc.Driver</value> </property>
+    <property name="url"> <value>jdbc:mysql://localhost/spring</value> </property>
+    <property name="username"> <value>root</value> </property>
+    <property name="password"> <value>1234</value> </property>
+  </bean>
+   <!-- Shop -->  
+  <!-- PlayerDao -->
+  <bean id="playerDao" class="dao.PlayerDao">
+    <property name="dataSource"> <ref bean="dataSource" /> </property>
+  </bean>
+</beans>
